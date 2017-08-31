@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<script src="vendor\jquery-3.2.1.min.js"></script>
+<script src="vendor\jquery-ui-1.12.1\jquery-ui.js"></script>
+<script>
+  $(document).ready(function () {
+    
+	$('ul').sortable({
+        axis: 'y',
+        stop: function (event, ui) {
+	        var data = $(this).sortable('serialize');
+            $('span').text(data);
+            /*$.ajax({
+                    data: oData,
+                type: 'POST',
+                url: '/your/url/here'
+            });*/
+	}
+    });
+	//alert("Hello");
+	
+});	  
+
+function getvalue(){
+		console.log(document.getElementById("taskName").value);
+		}
+</script>
+</head>
+<body>    
+<form>
+	<input type = "text" name = "taskName" id = "taskName">
+	<input type = "button" onclick = "getvalue()" name = "Submit">
+</form>
+<ul id="sortable">
+    <li id="item-1">Item 1</li>
+    <li id="item-2">Item 2</li>
+</ul>
+Query string: <span></span>
+
+</body>
+</html>
